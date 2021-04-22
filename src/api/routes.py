@@ -2,46 +2,110 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Tutores, Tutorias
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
 
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
-
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend"
-    }
-
-    return jsonify(response_body), 200
-
-    
-""""
-@app.route('/user', methods=['GET', 'POST'])
+@api.route('/user', methods=['GET', 'POST'])
 def user_pva():
     if request.method == 'GET':
         gt_get_user = User.query.all()
-        all_user = list(map(lambda x: x.serialize(), gt_get_user))
+        all_user = list(map(lambda x: x.serialize_user(), gt_get_user))
         return jsonify(all_user), 200
     elif request.method == 'POST':
         request_body = request.get_json()
-        insert_user = User(id_u=request_body["id_u"],
-                                  email=request_body["email"],
-                                  user_id=request_body["user_id"],
-                                  user_name=request_body["user_name"],
-                                  user_lastname=request_body["user_lastname"],
-                                  birthday=request_body["birthday"],
-                                  password=request_body["password"],
-                                  is_active=request_body["is_active"],
-                                  direction=request_body["direction"],
-                                  gender=request_body["gender"])
-        db.session.add(insert_user)
-        db.session.commit()
+        for i in request_body: 
+            insert_user = User(id_u=i["id_u"],
+                           email=i["email"],
+                           user_id=i["user_id"],
+                           user_name=i["user_name"],
+                           user_lastname=i["user_lastname"],
+                           birthday=i["birthday"],
+                           password=i["password"],
+                           is_active=i["is_active"],
+                           direction=i["direction"],
+                           gender=i["gender"])
+            db.session.add(insert_user)
+            db.session.commit()
         return jsonify({"Todo ok" : request_body }), 200
 
-@app.route('/people/<int:id_us>', methods=['GET'])
+@api.route('/user/<int:id_us>', methods=['GET'])
+def user_pva_ind(id_us):
+    gt_get_user_pva_ind =  User.query.filter_by(id_u = id_us).first()
+    if gt_get_user_pva_ind is None:
+        raise APIException('El usuario que buscas no existe', status_code=404)
+    user_pva = gt_get_user_pva_ind.serialize_user()
+    return jsonify(user_pva), 200
+
+@api.route('/tutores', methods=['GET', 'POST'])
+def tutores_pva():
+    if request.method == 'GET':
+        gt_get_tutores = Tutores.query.all()
+        all_tutores = list(map(lambda x: x.serialize_tutor(), gt_get_tutores))
+        return jsonify(all_tutores), 200
+    elif request.method == 'POST':
+        request_body = request.get_json()
+        for i in request_body: 
+            insert_tutores = Tutores(id_t=request_body["id_t"],
+                            email=request_body["email"],
+                            tutor_id=request_body["tutor_id"],
+                            tutor_name=request_body["user_name"],
+                            tutor_lastname=request_body["user_lastname"],
+                            specialty=request_body["specialty"],
+                            curriculum=request_body["curriculum"],
+                            url_curriculum=request_body["url_curriculum"],
+                            birthday=request_body["birthday"],
+                            password=request_body["password"],
+                            is_active=request_body["is_active"],
+                            direction=request_body["direction"],
+                            gender=request_body["gender"])
+            db.session.add(insert_user)
+            db.session.commit()
+        return jsonify({"Todo ok" : request_body }), 200
+
+
+@api.route('/tutorias', methods=['GET', 'POST'])
+def tutorias_pva():
+    if request.method == 'GET':
+        gt_get_tutorias = Tutorias.query.all()
+        all_tutorias = list(map(lambda x: x.serialize_tutorias(), gt_get_tutorias))
+        return jsonify(all_tutorias), 200
+    elif request.method == 'POST':
+        request_body = request.get_json()
+        for i in request_body: 
+            insert_tutores = Tutores(id_tt=request_body["id_tt"],
+                            tutorships_name=request_body["tutorships_name"],
+                            category=request_body["category"],
+                            specialty=request_body["specialty"],
+                            info_specifies=request_body["info_specifies"],
+                            info_detail=request_body["info_detail"],
+                            rating=request_body["rating"],
+                            tutor_id_fk=request_body["tutor_id_fk"],
+                            birthday=request_body["birthday"],
+                            password=request_body["password"],
+                            is_active=request_body["is_active"],
+                            cost=request_body["cost"])
+            db.session.add(insert_tutores)
+            db.session.commit()
+        return jsonify({"Todo ok" : request_body }), 200
+
+
+"""
+
+"id_tt": self.id_tt,
+"tutorships_name": self.tutorships_name,
+"category" : self.category,
+"specialty" : self.specialty,
+"info_specifies" : self.info_specifies,
+"info_detail" : self.info_detail,
+"rating" : self.rating,
+"tutor_id_fk" : self.tutor_id_fk,
+"is_active" : self.is_active,
+"cost" : self.cost 
+
+@api.route('/people/<int:id_us>', methods=['GET'])
 def people_sw_u(id_us):
     gt_get_people_u =  People_SW.query.filter_by(id_people = id_us).first()
     if gt_get_people_u is None:
