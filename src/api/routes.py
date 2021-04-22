@@ -17,6 +17,8 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+    
+""""
 @app.route('/user', methods=['GET', 'POST'])
 def user_pva():
     if request.method == 'GET':
@@ -39,7 +41,6 @@ def user_pva():
         db.session.commit()
         return jsonify({"Todo ok" : request_body }), 200
 
-
 @app.route('/people/<int:id_us>', methods=['GET'])
 def people_sw_u(id_us):
     gt_get_people_u =  People_SW.query.filter_by(id_people = id_us).first()
@@ -48,8 +49,7 @@ def people_sw_u(id_us):
     people = gt_get_people_u.serialize_people()
     return jsonify(people), 200
 
-""" API """
-"""
+
 @app.route('/people', methods=['GET', 'POST'])
 def people_sw():
     if request.method == 'GET':
