@@ -48,20 +48,20 @@ def tutores_pva():
     elif request.method == 'POST':
         request_body = request.get_json()
         for i in request_body: 
-            insert_tutores = Tutores(id_t=request_body["id_t"],
-                            email=request_body["email"],
-                            tutor_id=request_body["tutor_id"],
-                            tutor_name=request_body["user_name"],
-                            tutor_lastname=request_body["user_lastname"],
-                            specialty=request_body["specialty"],
-                            curriculum=request_body["curriculum"],
-                            url_curriculum=request_body["url_curriculum"],
-                            birthday=request_body["birthday"],
-                            password=request_body["password"],
-                            is_active=request_body["is_active"],
-                            direction=request_body["direction"],
-                            gender=request_body["gender"])
-            db.session.add(insert_user)
+            insert_tutores = Tutores(id_t=i["id_t"],
+                            email=i["email"],
+                            tutor_id=i["tutor_id"],
+                            tutor_name=i["tutor_name"],
+                            tutor_lastname=i["tutor_lastname"],
+                            specialty=i["specialty"],
+                            curriculum=i["curriculum"],
+                            url_curriculum=i["url_curriculum"],
+                            birthday=i["birthday"],
+                            password=i["password"],
+                            is_active=i["is_active"],
+                            direction=i["direction"],
+                            gender=i["gender"])
+            db.session.add(insert_tutores)
             db.session.commit()
         return jsonify({"Todo ok" : request_body }), 200
 
@@ -70,7 +70,7 @@ def tutores_pva_ind(id_tu):
     gt_get_tutor_pva_ind =  Tutores.query.filter_by(id_t = id_tu).first()
     if gt_get_tutor_pva_ind is None:
         raise APIException('El usuario que buscas no existe', status_code=404)
-    tutor_pva = gt_get_tutor_pva_ind.serialize_user()
+    tutor_pva = gt_get_tutor_pva_ind.serialize_tutor()
     return jsonify(tutor_pva), 200
 
 @api.route('/tutorias', methods=['GET', 'POST'])
@@ -82,19 +82,19 @@ def tutorias_pva():
     elif request.method == 'POST':
         request_body = request.get_json()
         for i in request_body: 
-            insert_tutores = Tutores(id_tt=request_body["id_tt"],
-                            tutorships_name=request_body["tutorships_name"],
-                            category=request_body["category"],
-                            specialty=request_body["specialty"],
-                            info_specifies=request_body["info_specifies"],
-                            info_detail=request_body["info_detail"],
-                            rating=request_body["rating"],
-                            tutor_id_fk=request_body["tutor_id_fk"],
-                            birthday=request_body["birthday"],
-                            password=request_body["password"],
-                            is_active=request_body["is_active"],
-                            cost=request_body["cost"])
-            db.session.add(insert_tutores)
+            insert_tutorias = Tutorias(id_tt=i["id_tt"],
+                            tutorships_name=i["tutorships_name"],
+                            category=i["category"],
+                            specialty=i["specialty"],
+                            info_specifies=i["info_specifies"],
+                            info_detail=i["info_detail"],
+                            rating=i["rating"],
+                            tutor_id_fk=i["tutor_id_fk"],
+                            birthday=i["birthday"],
+                            password=i["password"],
+                            is_active=i["is_active"],
+                            cost=i["cost"])
+            db.session.add(insert_tutorias)
             db.session.commit()
         return jsonify({"Todo ok" : request_body }), 200
 
