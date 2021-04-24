@@ -4,13 +4,13 @@ import Jumbotron from "../component/Jumbotron.js";
 import Card from "../component/Card.js";
 import "../../styles/home.scss";
 import "../../styles/demo.scss";
-
+import Cards2 from "../component/Cards2.js";
 export const Home = () => {
 	return (
 		<div>
 			<Jumbotron />
 			<Card />
-			<Jumbotron />
+			<Cards2 />
 		</div>
 	);
 };
