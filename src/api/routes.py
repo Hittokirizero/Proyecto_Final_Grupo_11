@@ -90,8 +90,6 @@ def tutorias_pva():
                             info_detail=i["info_detail"],
                             rating=i["rating"],
                             tutor_id_fk=i["tutor_id_fk"],
-                            birthday=i["birthday"],
-                            password=i["password"],
                             is_active=i["is_active"],
                             cost=i["cost"])
             db.session.add(insert_tutorias)
@@ -100,14 +98,23 @@ def tutorias_pva():
 
 @api.route('/tutorias/<int:id_tt>', methods=['GET'])
 def tutorias_pva_ind(id_tt):
-    gt_get_tutorias_pva_ind =  Tutorias.query.filter_by(id_t = id_tt).first()
+    gt_get_tutorias_pva_ind =  Tutorias.query.filter_by(id_tt = id_tt).first()
     if gt_get_tutorias_pva_ind is None:
         raise APIException('El usuario que buscas no existe', status_code=404)
-    tutorias_pva = gt_get_tutorias_pva_ind.serialize_user()
+    tutorias_pva = gt_get_tutorias_pva_ind.serialize_tutorias()
     return jsonify(tutorias_pva), 200
 
 """
-
+"id_tt": self.id_tt,
+            "tutorships_name": self.tutorships_name,
+            "category" : self.category,
+            "specialty" : self.specialty,
+            "info_specifies" : self.info_specifies,
+            "info_detail" : self.info_detail,
+            "rating" : self.rating,
+            "tutor_id_fk" : self.tutor_id_fk,
+            "is_active" : self.is_active,
+            "cost" : self.cost 
 
 
 @api.route('/people/<int:id_us>', methods=['GET'])
