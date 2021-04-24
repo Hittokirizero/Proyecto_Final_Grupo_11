@@ -1,15 +1,12 @@
 import React from "react";
 
-export const bigCard = () => {
+export const bigCardInv = () => {
 	return (
 		<div className="First">
 			<div className="card mb-3">
-				<div className="row">
-					<div className="col-6">
-						<img src="https://picsum.photos/1000/600" alt="..." />
-					</div>
+				<div className="row bg-dark text-light">
 					<div className="col-md-6 my-auto px-2">
-						<div className="text-center">
+						<div className="text-center ">
 							<h1 className="card-title">Card title</h1>
 							<p className="card-text">
 								This is a wider card with supporting text below as a natural lead-in to additional
@@ -20,10 +17,13 @@ export const bigCard = () => {
 							</p>
 						</div>
 					</div>
+					<div className="col-6">
+						<img src="https://picsum.photos/1000/600" alt="..." />
+					</div>
 				</div>
 			</div>
 		</div>
 	);
 };
 
-export default bigCard;
+export default bigCardInv;
