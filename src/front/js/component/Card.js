@@ -18,7 +18,7 @@ const Example = props => {
 				<div className="row align-items-start">
 					<div className="col-4 text-center">
 						<Card>
-							<CardImg top width="100%" src="https://picsum.photos/200" alt="Card image cap" />
+							<CardImg top width="100%" src="https://picsum.photos/1920/1080" alt="Card image cap" />
 							<CardBody>
 								<CardTitle tag="h5">Card title</CardTitle>
 								<CardSubtitle tag="h6" className="mb-2 text-muted">
@@ -34,7 +34,7 @@ const Example = props => {
 					</div>
 					<div className="col-4 text-center">
 						<Card>
-							<CardImg top width="100%" src="https://picsum.photos/200" alt="Card image cap" />
+							<CardImg top width="100%" src="https://picsum.photos/1920/1080" alt="Card image cap" />
 							<CardBody>
 								<CardTitle tag="h5">Card title</CardTitle>
 								<CardSubtitle tag="h6" className="mb-2 text-muted">
@@ -50,7 +50,7 @@ const Example = props => {
 					</div>
 					<div className="col-4 text-center">
 						<Card>
-							<CardImg top width="100%" src="https://picsum.photos/200" alt="Card image cap" />
+							<CardImg top width="100%" src="https://picsum.photos/1920/1080" alt="Card image cap" />
 							<CardBody>
 								<CardTitle tag="h5">Card title</CardTitle>
 								<CardSubtitle tag="h6" className="mb-2 text-muted">

@@ -1,44 +1,29 @@
 import React from "react";
-export const Card2 = () => {
-	<div className="First">
-		<div className="card mb-3" style="max-width: 540px;">
-			<div className="row g-0">
-				<div className="col-md-4">
-					<img src="..." alt="..." />
-				</div>
-				<div className="col-md-8">
-					<div className="card-body">
-						<h5 className="card-title">Card title</h5>
-						<p className="card-text">
-							This is a wider card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
-						</p>
-						<p className="card-text">
-							<small className="text-muted">Last updated 3 mins ago</small>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
 
-		<div className="card mb-3" style="max-width: 540px;">
-			<div className="row g-0">
-				<div className="col-md-4">
-					<img src="..." alt="..." />
-				</div>
-				<div className="col-md-8">
-					<div className="card-body">
-						<h5 className="card-title">Card title</h5>
-						<p className="card-text">
-							This is a wider card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
-						</p>
-						<p className="card-text">
-							<small className="text-muted">Last updated 3 mins ago</small>
-						</p>
+export const bigCard = () => {
+	return (
+		<div className="First">
+			<div className="card mb-3">
+				<div className="row">
+					<div className="col-6">
+						<img src="https://picsum.photos/1000/600" alt="..." />
+					</div>
+					<div className="col-md-6 my-auto px-2">
+						<div className="text-center">
+							<h1 className="card-title">Card title</h1>
+							<p className="card-text">
+								This is a wider card with supporting text below as a natural lead-in to additional
+								content.
+							</p>
+							<p className="card-text">
+								<small className="text-muted">Last updated 3 mins ago</small>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>;
+	);
 };
+
+export default bigCard;

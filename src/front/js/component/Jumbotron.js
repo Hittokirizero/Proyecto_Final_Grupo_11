@@ -6,9 +6,9 @@ import { Button } from "reactstrap";
 const Example = props => {
 	return (
 		<div>
-			<Jumbotron fluid>
+			<Jumbotron fluid my-auto>
 				<Container fluid>
-					<div className="text-center text-light mt-7">
+					<div className="text-center">
 						<h1 className="display-3">Your Journey Begins</h1>
 						<p className="lead">
 							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
