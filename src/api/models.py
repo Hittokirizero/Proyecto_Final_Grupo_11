@@ -100,5 +100,28 @@ class Tutorias(db.Model):
             # do not serialize the password, its a security breach
         }
 
+class TutoriaContratada(db.Model):
+    __tablename__ = 'tutoriacontratada'
+    id_tc = db.Column(db.Integer, primary_key=True)
+    tutoria_id_fk = db.Column(db.Integer, db.ForeignKey('tutorias.id_tt'), nullable=True)
+    tutoria_id = db.relationship('Tutorias')
+    user_id_fk = db.Column(db.Integer, db.ForeignKey('user.id_u'), nullable=True)
+    user_id = db.relationship('User')
+    fecha_contrato = db.Column(db.String(120), unique=False, nullable=False)
+    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+    fecha_cierre = db.Column(db.String(120), unique=False, nullable=False)
+   
+    def __repr__(self):
+        return '<TutoriaContratada %r>' % self.tutoria_id_fk
 
+    def serialize_tutoriacontratada(self):
+        return {
+            "id_tc": self.id_tc,
+            "tutoria_id_fk": self.tutoria_id_fk,
+            "user_id" : self.user_id,
+            "fecha_contrato" : self.fecha_contrato,
+            "is_active" : self.is_active,
+            "fecha_cierre" : self.fecha_cierre 
+            # do not serialize the password, its a security breach
+        }
 
