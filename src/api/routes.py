@@ -65,6 +65,13 @@ def tutores_pva():
             db.session.commit()
         return jsonify({"Todo ok" : request_body }), 200
 
+@api.route('/tutores/<int:id_tu>', methods=['GET'])
+def tutores_pva_ind(id_tu):
+    gt_get_tutor_pva_ind =  Tutores.query.filter_by(id_t = id_tu).first()
+    if gt_get_tutor_pva_ind is None:
+        raise APIException('El usuario que buscas no existe', status_code=404)
+    tutor_pva = gt_get_tutor_pva_ind.serialize_user()
+    return jsonify(tutor_pva), 200
 
 @api.route('/tutorias', methods=['GET', 'POST'])
 def tutorias_pva():
@@ -91,19 +98,17 @@ def tutorias_pva():
             db.session.commit()
         return jsonify({"Todo ok" : request_body }), 200
 
+@api.route('/tutorias/<int:id_tt>', methods=['GET'])
+def tutorias_pva_ind(id_tt):
+    gt_get_tutorias_pva_ind =  Tutorias.query.filter_by(id_t = id_tt).first()
+    if gt_get_tutorias_pva_ind is None:
+        raise APIException('El usuario que buscas no existe', status_code=404)
+    tutorias_pva = gt_get_tutorias_pva_ind.serialize_user()
+    return jsonify(tutorias_pva), 200
 
 """
 
-"id_tt": self.id_tt,
-"tutorships_name": self.tutorships_name,
-"category" : self.category,
-"specialty" : self.specialty,
-"info_specifies" : self.info_specifies,
-"info_detail" : self.info_detail,
-"rating" : self.rating,
-"tutor_id_fk" : self.tutor_id_fk,
-"is_active" : self.is_active,
-"cost" : self.cost 
+
 
 @api.route('/people/<int:id_us>', methods=['GET'])
 def people_sw_u(id_us):
