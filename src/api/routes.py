@@ -100,11 +100,67 @@ def tutorias_pva():
 def tutorias_pva_ind(id_tt):
     gt_get_tutorias_pva_ind =  Tutorias.query.filter_by(id_tt = id_tt).first()
     if gt_get_tutorias_pva_ind is None:
-        raise APIException('El usuario que buscas no existe', status_code=404)
+        raise APIException('El usuario que buscas no existe', status_code=401)
     tutorias_pva = gt_get_tutorias_pva_ind.serialize_tutorias()
     return jsonify(tutorias_pva), 200
 
+@api.route('/tutorias/<int:id_us>/contract', methods=['GET', 'POST'])
+def tutorias_contract(id_us):
+    get_tutorias_user =  User.query.filter_by(id_u = id_us).all
+    if get_tutorias_user is None:
+        raise APIException('El usuario que buscas no existe', status_code=401)
+
+    if request.method == 'GET':
+        get_tutorias_user =  TutoriaContratada.query.filter_by(user_id_fk = id_us)
+        if get_tutorias_user is None:
+            raise APIException('El usuario que busca no tiene tutorias contratadas', status_code=402)
+        user_contract = list(map(lambda x: x.serialize_tutoriacontratada(), get_tutorias_user))
+        return jsonify(user_contract), 200
+    elif request.method == 'POST':
+        get_tutorias_user =  TutoriaContratada.query.filter_by(user_id_fk = id_us).first()
+        if get_tutorias_user is None:
+            raise APIException('El usuario que buscas no existe', status_code=401)
+        for i in request_body:
+            insert_contract = TutoriaContratada(id_tc=i["id_tc"],
+                                    tutoria_id_fk=i["tutoria_id_fk"],
+                                    user_id_fk=i["user_id_fk"],
+                                    fecha_contrato=i["fecha_contrato"],
+                                    is_active=i["is_active"],
+                                    fecha_cierre=i["fecha_cierre"])
+            db.session.add(insert_contract)
+            db.session.commit()
+        return jsonify({"Todo ok" : request_body }), 200
+
+@api.route('/tutorias/<int:id_us>', methods=['DELETE'])
+def tutorias_contract_del(id_c_tc):
+    gt_tutorias_contract_del =  TutoriaContratada.query.filter_by(id_tc = id_c_tc).first()
+    if gt_tutorias_contract_del is None:
+        raise APIException('La tutoria contratada no existe', status_code=403)
+    db.session.delete(gt_tutorias_contract_del)
+    db.session.commit()
+    return jsonify({"Fue eliminada la tutoria ID: ": fav_id}), 201
+
+@api.route('/update/<int:id_us>', methods=['PUT'])
+def tutorias_contract_del(id_c_tc):
+    gt_tutorias_contract_Ud =  TutoriaContratada.query.filter_by(id_tc = id_c_tc).first()
+    if gt_tutorias_contract_Ud is None:
+        raise APIException('La tutoria contratada no existe', status_code=403)
+    update_state = (Update(TutoriaContratada).where(id_tc == id_c_tc).values(is_active = False))
+    db.session.update(update_state)
+    db.session.commit()
+    return jsonify({"Fue eliminada la tutoria ID: ": fav_id}), 201
+
+
 """
+
+id_tc = db.Column(db.Integer, primary_key=True)
+    tutoria_id_fk = db.Column(db.Integer, db.ForeignKey('tutorias.id_tt'), nullable=True)
+    tutoria_id = db.relationship('Tutorias')
+    user_id_fk = db.Column(db.Integer, db.ForeignKey('user.id_u'), nullable=True)
+    user_id = db.relationship('User')
+    fecha_contrato = db.Column(db.String(120), unique=False, nullable=False)
+    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+    fecha_cierre = db.Column(db.String(120), unique=False, nullable=False)
 
 @app.route('/user_sw/<int:user_id>/favorites', methods=['GET', 'POST', 'DELETE'])
 def user_sw_fv(user_id):
