@@ -1,28 +1,22 @@
 import React from "react";
-
-export const bigCardInv = () => {
+import { Card, Button, CardImg, CardTitle, CardText, CardGroup, CardSubtitle, CardBody } from "reactstrap";
+const bigCardInv = props => {
 	return (
-		<div className="First">
-			<div className="card mb-3">
-				<div className="row bg-dark text-light">
-					<div className="col-md-6 my-auto px-2">
-						<div className="text-center ">
-							<h1 className="card-title">Card title</h1>
-							<p className="card-text">
-								This is a wider card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<p className="card-text">
-								<small className="text-muted">Last updated 3 mins ago</small>
-							</p>
-						</div>
-					</div>
-					<div className="col-6">
-						<img src="https://picsum.photos/1000/600" alt="..." />
-					</div>
-				</div>
-			</div>
-		</div>
+		<CardGroup>
+			<Card>
+				<CardBody className="bg-dark text-light">
+					<CardTitle tag="h5">Card title</CardTitle>
+					<CardSubtitle tag="h6" className="mb-2 text-muted">
+						Card subtitle
+					</CardSubtitle>
+					<CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+					<Button>Button</Button>
+				</CardBody>
+			</Card>
+			<Card>
+				<CardImg top width="100%" src="https://picsum.photos/1920/1080" alt="Card image cap" />
+			</Card>
+		</CardGroup>
 	);
 };
 
