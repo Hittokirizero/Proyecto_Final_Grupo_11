@@ -34,7 +34,9 @@ export const Navbar = props => {
 					<div className="col-3">
 						<Dropdown isOpen={dropdownOpen} toggle={toggle}>
 							<DropdownToggle tag="span" data-toggle="dropdown" aria-expanded={dropdownOpen}>
-								<h5>Profile</h5>
+								<h5>
+									Profile <i className="fas fa-angle-down" />
+								</h5>
 							</DropdownToggle>
 							<DropdownMenu>
 								<DropdownItem header>Actions</DropdownItem>
