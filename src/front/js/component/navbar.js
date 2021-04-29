@@ -26,7 +26,7 @@ export const Navbar = props => {
 						</Link>
 					</div>
 					<div className="col-md-3">
-						<Link to="/demo">
+						<Link to="/courses">
 							<h5 className="text-dark">Courses</h5>
 						</Link>
 					</div>
