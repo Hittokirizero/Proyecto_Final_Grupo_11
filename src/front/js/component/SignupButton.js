@@ -4,7 +4,7 @@ import "../../styles/SignupButton.scss";
 const SignupButton = props => {
 	return (
 		<div className="registro">
-			<Button color="primary">Log In</Button>{" "}
+			<Button color="primary">Sign up</Button> <Button color="primary">Log In</Button>{" "}
 		</div>
 	);
 };
