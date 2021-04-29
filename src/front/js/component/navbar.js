@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 import { Link } from "react-router-dom";
+import SignupButton from "./SignupButton.js";
 
 export const Navbar = props => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -10,12 +11,15 @@ export const Navbar = props => {
 	return (
 		<div className="justify-content-between align-items-center border border-bottom bg-light">
 			<div className="row">
-				<div className="col-md-12">
+				<div className="col-md-10">
 					<Link to="/">
 						<div className="text-center my-4">
 							<h1>Pura Vida Academy</h1>
 						</div>
 					</Link>
+				</div>
+				<div className="col-2">
+					<SignupButton> Registro</SignupButton>
 				</div>
 			</div>
 			<div className="container text-center my-3">
