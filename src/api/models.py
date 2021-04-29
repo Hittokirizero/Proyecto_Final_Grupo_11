@@ -10,6 +10,7 @@ class User(db.Model):
     user_name = db.Column(db.String(120), unique=False, nullable=False)
     user_lastname = db.Column(db.String(120), unique=False, nullable=False)
     birthday = db.Column(db.String(120), unique=False, nullable=False)
+    imagen = db.Column(db.String(120), unique=False, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     direction = db.Column(db.String(80), unique=False, nullable=False)
@@ -26,6 +27,7 @@ class User(db.Model):
             "user_name" : self.user_name,
             "user_lastname" : self.user_lastname,
             "birthday" : self.birthday,
+            "imagen" : self.imagen,
             "is_active" : self.is_active,
             "direction" : self.direction,
             "gender" : self.gender
@@ -43,6 +45,7 @@ class Tutores(db.Model):
     curriculum = db.Column(db.String(120), unique=False, nullable=False)
     url_curriculum = db.Column(db.String(120), unique=False, nullable=False)
     birthday = db.Column(db.String(120), unique=False, nullable=False)
+    imagen = db.Column(db.String(120), unique=False, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     direction = db.Column(db.String(80), unique=False, nullable=False)
@@ -62,6 +65,7 @@ class Tutores(db.Model):
             "curriculum" : self.curriculum,
             "url_curriculum" : self.url_curriculum,
             "birthday" : self.birthday,
+            "imagen" : self.imagen,
             "is_active" : self.is_active,
             "direction" : self.direction,
             "gender" : self.gender
@@ -76,6 +80,7 @@ class Tutorias(db.Model):
     specialty = db.Column(db.String(120), unique=False, nullable=False)
     info_specifies = db.Column(db.String(300), unique=False, nullable=False)
     info_detail = db.Column(db.String(300), unique=False, nullable=False)
+    imagen = db.Column(db.String(120), unique=False, nullable=False)
     rating = db.Column(db.Integer, unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     cost = db.Column(db.Integer, unique=False, nullable=False)
@@ -93,6 +98,7 @@ class Tutorias(db.Model):
             "specialty" : self.specialty,
             "info_specifies" : self.info_specifies,
             "info_detail" : self.info_detail,
+            "imagen" : self.imagen,
             "rating" : self.rating,
             "tutor_id_fk" : self.tutor_id_fk,
             "is_active" : self.is_active,

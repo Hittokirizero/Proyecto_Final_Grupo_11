@@ -24,6 +24,7 @@ def user_pva():
                            user_name=i["user_name"],
                            user_lastname=i["user_lastname"],
                            birthday=i["birthday"],
+                           imagen=i["imagen"],
                            password=i["password"],
                            is_active=i["is_active"],
                            direction=i["direction"],
@@ -57,6 +58,7 @@ def tutores_pva():
                             specialty=i["specialty"],
                             curriculum=i["curriculum"],
                             url_curriculum=i["url_curriculum"],
+                            imagen=i["imagen"],
                             birthday=i["birthday"],
                             password=i["password"],
                             is_active=i["is_active"],
@@ -89,6 +91,7 @@ def tutorias_pva():
                             specialty=i["specialty"],
                             info_specifies=i["info_specifies"],
                             info_detail=i["info_detail"],
+                            imagen=i["imagen"],
                             rating=i["rating"],
                             tutor_id_fk=i["tutor_id_fk"],
                             is_active=i["is_active"],
@@ -104,7 +107,8 @@ def tutorias_pva_ind(id_tt):
         raise APIException('El usuario que buscas no existe', status_code=401)
     tutorias_pva = gt_get_tutorias_pva_ind.serialize_tutorias()
     return jsonify(tutorias_pva), 200
-"""----------------------"""
+
+
 @api.route('/tutorias/<int:id_us>/contract', methods=['GET', 'POST'])
 def tutorias_contract(id_us):
     get_tutorias_user = User.query.filter_by(id_u = id_us).first()
@@ -132,21 +136,23 @@ def tutorias_contract(id_us):
             db.session.commit()
         return jsonify({"Todo ok" : request_body }), 200
 
-@api.route('/tutorias/<int:id_us>', methods=['DELETE'])
+
+@api.route('/tutorias/<int:id_c_tc>', methods=['DELETE'])
 def tutorias_contract_del(id_c_tc):
     gt_tutorias_contract_del =  Tutoria_Contratada.query.filter_by(id_tc = id_c_tc).first()
     if gt_tutorias_contract_del is None:
         raise APIException('La tutoria contratada no existe', status_code=403)
     db.session.delete(gt_tutorias_contract_del)
     db.session.commit()
-    return jsonify({"Fue eliminada la tutoria ID: ": fav_id}), 201
+    return jsonify({"Fue eliminada la tutoria ID: ": id_c_tc}), 201
 
+"""----------------------"""
 @api.route('/update/<int:id_c_tc>', methods=['PUT'])
 def tutorias_contract_UP(id_c_tc):
     gt_tutorias_contract_Ud =  Tutoria_Contratada.query.filter_by(id_tc = id_c_tc).first()
     if gt_tutorias_contract_Ud is None:
         raise APIException('La tutoria contratada no existe', status_code=403)
-    update_state = (Update(Tutoria_Contratada).where(id_tc == id_c_tc).values(is_active = False, fecha_cierre = GETDATE()))
+    update_state = (update(Tutoria_Contratada).where(id_tc == id_c_tc).values(is_active = False, fecha_cierre = GETDATE()))
     db.session.update(update_state)
     db.session.commit()
     return jsonify({"Fue actualizado la tutoria ID: ": id_c_tc}), 202
