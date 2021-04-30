@@ -3,9 +3,9 @@ import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from "reactstrap";
 
 const Card3 = props => {
 	return (
-		<div className="container mb-4">
+		<div className="container mb-4 text-center">
 			<Card inverse>
-				<CardImg width="100%" src="https://picsum.photos/1920/1080" alt="Card image cap" />
+				<CardImg className="rounded" src="https://picsum.photos/1920/1080" />
 				<CardImgOverlay>
 					<CardTitle tag="h5">Card Title</CardTitle>
 					<CardText>

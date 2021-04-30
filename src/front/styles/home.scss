@@ -1,5 +1,13 @@
 .jumbotron {
-  background-image: url("https://picsum.photos/1920/1080");
-  background-size: cover;
+//   background-image: url("https://picsum.photos/1920/1080");
+//   background-size: cover;
+background-color: rgb(245, 249, 251);
 }
 
+body{
+    background-color: rgb(245, 249, 251);
+    font-family: Proxima Nova,serif;
+}
+#navbar{
+    background-color: rgb(13, 31, 55);
+}

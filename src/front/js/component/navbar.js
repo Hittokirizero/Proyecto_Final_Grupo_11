@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 import { Link } from "react-router-dom";
+import "../../styles/home.scss";
 
 export const Navbar = props => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -8,11 +9,13 @@ export const Navbar = props => {
 	const toggle = () => setDropdownOpen(prevState => !prevState);
 
 	return (
-		<div className="justify-content-between align-items-center border border-bottom bg-light">
+		<div
+			className="justify-content-between align-items-center border border-bottom text-light shadow-sm p-3 mb-5 bg-body rounded"
+			id="navbar">
 			<div className="row">
 				<div className="col-md-12">
 					<Link to="/">
-						<div className="text-center my-4">
+						<div className="text-center my-4 text-light">
 							<h1>Pura Vida Academy</h1>
 						</div>
 					</Link>
@@ -22,25 +25,25 @@ export const Navbar = props => {
 				<div className="row">
 					<div className="col-md-3">
 						<Link to="/">
-							<h5 className="text-dark">Home</h5>
+							<h4 className="text-light">Home</h4>
 						</Link>
 					</div>
 					<div className="col-md-3">
 						<Link to="/courses">
-							<h5 className="text-dark">Courses</h5>
+							<h4 className="text-light">Courses</h4>
 						</Link>
 					</div>
 					<div className="col-md-3">
 						<Link to="/">
-							<h5 className="text-dark">Information</h5>
+							<h4 className="text-light">Information</h4>
 						</Link>
 					</div>
 					<div className="col-md-3">
 						<Dropdown isOpen={dropdownOpen} toggle={toggle}>
 							<DropdownToggle tag="span" data-toggle="dropdown" aria-expanded={dropdownOpen}>
-								<h5>
+								<h4>
 									Profile <i className="fas fa-angle-down" />
-								</h5>
+								</h4>
 							</DropdownToggle>
 							<DropdownMenu>
 								<DropdownItem header>Actions</DropdownItem>

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import Jumbotron from "../component/Jumbotron.js";
 import JumboEnd from "../component/Jumbotron2.js";
+import Infocards from "../component/3cards.js";
 import Card from "../component/Card.js";
 import Card2 from "../component/Card2.js";
 import Card3 from "../component/Card3.js";
@@ -15,7 +16,7 @@ export const Home = () => {
 			<Jumbotron />
 			<Card3 />
 			<Card2 />
-			<Card />
+			<Infocards />
 			<Card2Inv />
 			<JumboEnd />
 		</div>

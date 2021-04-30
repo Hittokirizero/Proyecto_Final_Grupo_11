@@ -9,8 +9,6 @@ export const Courses = () => {
 	return (
 		<div className="container">
 			<Card />
-			<Card />
-			<Card />
 		</div>
 	);
 };
