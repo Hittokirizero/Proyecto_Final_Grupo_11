@@ -27,25 +27,26 @@ const Example = props => {
 		return (
 			<div className="container-sm shadow-lg p-3 mb-5 bg-body rounded" key={index}>
 				<CardGroup>
-					<Card className="card">
-						<CardImg src={item.imagen} />
-					</Card>
+					<div>
+						<Card className="card">
+							<CardImg src={item.imagen} />
+						</Card>
+					</div>
 					<Card>
 						<CardBody className="bg-light text-dark ">
 							<CardTitle className="text-center" tag="h1">
-								{item.tutorships_name}
+								{item.category}
 							</CardTitle>
 							<CardSubtitle tag="h5" className="mb-2 text-muted text-start">
-								{item.category}
+								Tutor: {item.tutorships_name}
 							</CardSubtitle>
 							<CardText>
+								<h4>General Information:</h4>
 								<p>{item.info_detail}</p>
-								<br />
+								<h4>Specific Information:</h4>
 								<p>{item.info_specifies}</p>
-							</CardText>
-							<CardFooter className="bg-light border border-light">
 								<ReactStars count={5} value={item.rating} size={24} activeColor="#ffd700" />
-							</CardFooter>
+							</CardText>
 						</CardBody>
 					</Card>
 				</CardGroup>
