@@ -34,8 +34,8 @@ export const Navbar = props => {
 						</Link>
 					</div>
 					<div className="col-md-3">
-						<Link to="/">
-							<h4 className="text-light">Information</h4>
+						<Link to="/Information">
+							<h4 className="text-light">Contact</h4>
 						</Link>
 					</div>
 					<div className="col-md-3">
