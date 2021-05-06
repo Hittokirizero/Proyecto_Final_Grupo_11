@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
+import "/workspace/Proyecto_Final_Grupo_11/src/front/img/simple-2.png";
 
 export const Navbar = props => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -16,17 +17,11 @@ export const Navbar = props => {
 				<div className="col-md-12">
 					<Link to="/">
 						<div className="text-center my-4 text-light">
-							<h1>Pura Vida Academy</h1>
+							<h1>
+								<img id="PalmTree" src="simple-2.png" /> Pura Vida Academy
+								<img id="PalmTree" src="simple-2.png" />
+							</h1>
 						</div>
-					</Link>
-				</div>
-
-				<div className="mx-auto text-center">
-					<Link className="btn btn-primary ml-3" to="/login">
-						<h5>Log in</h5>
-					</Link>
-					<Link className="btn btn-primary ml-3" to="/signup">
-						<h5>Sign up</h5>
 					</Link>
 				</div>
 			</div>
@@ -56,11 +51,14 @@ export const Navbar = props => {
 							</DropdownToggle>
 							<DropdownMenu>
 								<DropdownItem header>Actions</DropdownItem>
-								<Link to="/demo">
-									<DropdownItem>My Profile</DropdownItem>
+								<Link to="/login">
+									<DropdownItem>Log in</DropdownItem>
+								</Link>
+								<Link to="/signup">
+									<DropdownItem>Sign Up</DropdownItem>
 								</Link>
 								<DropdownItem divider />
-								<DropdownItem>Log Out</DropdownItem>
+								<DropdownItem disabled>Log Out</DropdownItem>
 							</DropdownMenu>
 						</Dropdown>
 					</div>
