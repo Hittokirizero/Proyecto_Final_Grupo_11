@@ -11,6 +11,10 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Courses } from "./pages/courses";
 
+import { Login } from "./pages/login";
+import { Signup } from "./pages/signup";
+import { Forgotpassword } from "./pages/forgotpassword";
+
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -34,6 +38,15 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/Information">
 							<Info />
+						</Route>
+						<Route exact path="/login">
+							<Login />
+						</Route>
+						<Route exact path="/forgotpassword">
+							<Forgotpassword />
+						</Route>
+						<Route exact path="/signup">
+							<Signup />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
