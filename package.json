@@ -76,6 +76,7 @@
 		]
 	},
 	"dependencies": {
+		"@remotelock/react-week-scheduler": "^3.5.8",
 		"bootstrap": "^4.3.1",
 		"prop-types": "^15.6.1",
 		"react": "^16.14.0",
@@ -83,6 +84,8 @@
 		"react-polyfills": "0.0.1",
 		"react-rating-stars-component": "^2.2.0",
 		"react-router-dom": "^5.2.0",
-		"reactstrap": "^8.9.0"
+		"react-weekly-schedule": "0.0.0-development",
+		"reactstrap": "^8.9.0",
+		"scheduler-calendar": "^3.1.0"
 	}
 }

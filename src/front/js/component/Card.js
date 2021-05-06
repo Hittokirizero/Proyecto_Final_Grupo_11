@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ReactStars from "react-rating-stars-component";
+import PropTypes from "prop-types";
 import { render } from "react-dom";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import {
 	Card,
-	Button,
 	CardImg,
 	CardTitle,
 	CardText,
@@ -15,8 +16,10 @@ import {
 	CardFooter
 } from "reactstrap";
 import "../../styles/card.scss";
+import Button from "../component/button";
 
 const Example = props => {
+	const id = props.id;
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
@@ -24,6 +27,7 @@ const Example = props => {
 	}, []);
 
 	const category = store.courses.map((item, index) => {
+		let id = index;
 		return (
 			<div className="container-sm shadow-lg p-3 mb-5 bg-body rounded" key={index}>
 				<CardGroup>
@@ -43,9 +47,21 @@ const Example = props => {
 							<CardText>
 								<h4>General Information:</h4>
 								<p>{item.info_detail}</p>
-								<h4>Specific Information:</h4>
-								<p>{item.info_specifies}</p>
-								<ReactStars count={5} value={item.rating} size={24} activeColor="#ffd700" />
+								<h4>Location:</h4>
+								<i className="fas fa-map-marker-alt fa-lg"> {item.cost}</i>
+
+								<div className="container ">
+									<div className="row ">
+										{/* <div className="col-md-6">
+											<ReactStars count={5} value={item.rating} size={24} activeColor="#ffd700" />
+										</div> */}
+										<div className="col-md-12 text-center">
+											<Link to={`/course/${id}`}>
+												<Button />
+											</Link>
+										</div>
+									</div>
+								</div>
 							</CardText>
 						</CardBody>
 					</Card>
@@ -61,6 +77,10 @@ const Example = props => {
 			</div>
 		</div>
 	);
+};
+
+Example.propTypes = {
+	id: PropTypes.number
 };
 
 export default Example;

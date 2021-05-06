@@ -10,6 +10,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Courses } from "./pages/courses";
+import { CourseDetails } from "./pages/CourseDetails";
 
 import { Login } from "./pages/login";
 import { Signup } from "./pages/signup";
@@ -33,6 +34,9 @@ const Layout = () => {
 
 						<Route exact path="/courses">
 							<Courses />
+						</Route>
+						<Route path="/course/:id">
+							<CourseDetails />
 						</Route>
 						<Route exact path="/Information">
 							<Info />
