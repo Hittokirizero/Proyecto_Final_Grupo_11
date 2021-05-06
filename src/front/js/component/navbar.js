@@ -20,6 +20,15 @@ export const Navbar = props => {
 						</div>
 					</Link>
 				</div>
+
+				<div className="mx-auto text-center">
+					<Link className="btn btn-primary ml-3" to="/login">
+						<h5>Log in</h5>
+					</Link>
+					<Link className="btn btn-primary ml-3" to="/signup">
+						<h5>Sign up</h5>
+					</Link>
+				</div>
 			</div>
 			<div className="container text-center my-3">
 				<div className="row">
