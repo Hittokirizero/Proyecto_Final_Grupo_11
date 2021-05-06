@@ -1,22 +1,13 @@
 import React from "react";
 import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from "reactstrap";
+import "/workspace/Proyecto_Final_Grupo_11/src/front/img/pura vida logo-1.png";
+import "/workspace/Proyecto_Final_Grupo_11/src/front/img/pura vida logo-2.png";
+import "../../styles/home.scss";
 
 const Card3 = props => {
 	return (
-		<div className="container mb-4 text-center">
-			<Card inverse>
-				<CardImg className="rounded" src="https://picsum.photos/1920/1080" />
-				<CardImgOverlay>
-					<CardTitle tag="h5">Card Title</CardTitle>
-					<CardText>
-						This is a wider card with supporting text below as a natural lead-in to additional content. This
-						content is a little bit longer.
-					</CardText>
-					<CardText>
-						<small className="text-muted">Last updated 3 mins ago</small>
-					</CardText>
-				</CardImgOverlay>
-			</Card>
+		<div className="container text-center mb-4">
+			<img id="Logo" className="img-fluid" src="pura vida logo-2.png" />
 		</div>
 	);
 };

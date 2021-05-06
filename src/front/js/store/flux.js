@@ -5,7 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			courses: async () => {
-				const url = "https://3001-red-baboon-o9hxw613.ws-us04.gitpod.io/api/tutorias";
+				const url = "https://3001-salmon-kingfisher-sg2585zy.ws-us03.gitpod.io/api/tutorias";
 				const response = await fetch(url);
 				const data = await response.json();
 				setStore({ courses: data });
