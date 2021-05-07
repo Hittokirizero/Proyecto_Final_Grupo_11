@@ -12,7 +12,8 @@ import {
 	CardSubtitle,
 	CardBody,
 	Progress,
-	CardFooter
+	CardFooter,
+	Button
 } from "reactstrap";
 import ReactStars from "react-rating-stars-component";
 import Calendar from "../component/Calendar";
@@ -26,11 +27,15 @@ export const CourseDetails = props => {
 		actions.courses();
 	}, []);
 	return (
-		<div className="container">
+		<div className="container shadow-lg p-3 mb-5 bg-body rounded">
+			<Link to="/courses">
+				<i className="fas fa-arrow-left fa-2x text-dark" />
+			</Link>
 			<CardGroup>
 				<div>
 					<Card className="card">
-						<CardImg src={store.courses[id.id].imagen} />
+						<CardImg className="pe-3" src={store.courses[id.id].imagen} />
+						<ReactStars count={5} value={store.courses[id.id].rating} size={24} activeColor="#ffd700" />
 					</Card>
 				</div>
 				<Card>
@@ -48,8 +53,10 @@ export const CourseDetails = props => {
 							<h4>Specialty:</h4>
 							<p>{store.courses[id.id].specialty}</p>
 
-							<ReactStars count={5} value={store.courses[id.id].rating} size={24} activeColor="#ffd700" />
-							<Link to="/courses">Volver</Link>
+							<h4>Price:</h4>
+							<p>${store.courses[id.id].cost}</p>
+
+							<i className="fab fa-cc-paypal fa-2x text-center" />
 						</CardText>
 					</CardBody>
 				</Card>

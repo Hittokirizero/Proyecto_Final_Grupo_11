@@ -4,7 +4,7 @@ import { Table } from "reactstrap";
 const Calendar = props => {
 	return (
 		<div className="container">
-			<Table responsive>
+			<Table responsive className="text-center">
 				<thead>
 					<tr>
 						<th>Time</th>
@@ -23,7 +23,7 @@ const Calendar = props => {
 						<td>Table cell</td>
 						<td>Table cell</td>
 						<td>Table cell</td>
-						<td>Table cell</td>
+						<td className="table-success">Table cell</td>
 						<td>Table cell</td>
 						<td>Table cell</td>
 						<td>Table cell</td>
