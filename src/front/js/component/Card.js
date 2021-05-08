@@ -48,7 +48,7 @@ const Example = props => {
 								<h4>General Information:</h4>
 								<p>{item.info_detail}</p>
 								<h4>Location:</h4>
-								<i className="fas fa-map-marker-alt fa-lg"> {item.cost}</i>
+								<i className="fas fa-map-marker-alt fa-lg"> {item.location}</i>
 
 								<div className="container ">
 									<div className="row ">

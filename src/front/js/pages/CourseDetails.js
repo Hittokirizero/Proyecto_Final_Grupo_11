@@ -57,12 +57,12 @@ export const CourseDetails = props => {
 							<h4>Price:</h4>
 							<p>${store.courses[id.id].cost}</p>
 
-							<i className="fab fa-cc-paypal fa-2x text-center" />
+							<App />
 						</CardText>
 					</CardBody>
 				</Card>
 			</CardGroup>
-			<App />
+
 			<h1 className="text-center">Schedule</h1>
 			<Calendar />
 		</div>
