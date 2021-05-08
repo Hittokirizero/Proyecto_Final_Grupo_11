@@ -79,6 +79,7 @@ class Tutorias(db.Model):
     category = db.Column(db.String(120), unique=False, nullable=False)
     specialty = db.Column(db.String(120), unique=False, nullable=False)
     info_specifies = db.Column(db.String(300), unique=False, nullable=False)
+    location = db.Column(db.String(300), unique=False, nullable=False)
     info_detail = db.Column(db.String(300), unique=False, nullable=False)
     imagen = db.Column(db.String(120), unique=False, nullable=False)
     rating = db.Column(db.Integer, unique=False, nullable=False)
@@ -97,7 +98,8 @@ class Tutorias(db.Model):
             "category" : self.category,
             "specialty" : self.specialty,
             "info_specifies" : self.info_specifies,
-            "info_detail" : self.info_detail,
+            "location" : self.info_specifies,
+            "info_detail" : self.location,
             "imagen" : self.imagen,
             "rating" : self.rating,
             "tutor_id_fk" : self.tutor_id_fk,

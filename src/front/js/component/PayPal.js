@@ -28,6 +28,7 @@ export default function Paypal() {
 					console.log(order);
 				},
 
+
 				onError: err => {
 					console.log(err);
 				}
