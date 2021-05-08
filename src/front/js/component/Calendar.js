@@ -20,113 +20,113 @@ const Calendar = props => {
 				<tbody>
 					<tr>
 						<th scope="row">7:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td className="table-success">Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">8:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">9:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">10:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">11:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">12:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td className="table-success"> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">1:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">2:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">3:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">4:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 					<tr>
 						<th scope="row">5:00</th>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
-						<td>Table cell</td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
 					</tr>
 				</tbody>
 			</Table>

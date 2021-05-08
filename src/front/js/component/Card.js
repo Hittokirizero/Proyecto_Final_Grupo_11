@@ -46,15 +46,12 @@ const Example = props => {
 							</CardSubtitle>
 							<CardText>
 								<h4>General Information:</h4>
-								<p>{item.info_detail}</p>
+								<p>{item.location}</p>
 								<h4>Location:</h4>
-								<i className="fas fa-map-marker-alt fa-lg"> {item.cost}</i>
+								<i className="fas fa-map-marker-alt fa-lg"> {item.info_detail}</i>
 
 								<div className="container ">
 									<div className="row ">
-										{/* <div className="col-md-6">
-											<ReactStars count={5} value={item.rating} size={24} activeColor="#ffd700" />
-										</div> */}
 										<div className="col-md-12 text-center">
 											<Link to={`/course/${id}`}>
 												<Button />
