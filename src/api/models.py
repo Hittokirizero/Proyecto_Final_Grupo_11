@@ -4,7 +4,7 @@ db = SQLAlchemy()
 
 class User(db.Model):
     __tablename__ = 'user'
-    id_u = db.Column(db.Integer, primary_key=True)
+    id_u = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     user_id = db.Column(db.String(120), unique=True, nullable=False)
     user_name = db.Column(db.String(120), unique=False, nullable=False)
@@ -36,7 +36,7 @@ class User(db.Model):
 
 class Tutores(db.Model):
     __tablename__ = 'tutores'
-    id_t = db.Column(db.Integer, primary_key=True)
+    id_t = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     tutor_id = db.Column(db.String(120), unique=True, nullable=False)
     tutor_name = db.Column(db.String(120), unique=False, nullable=False)
@@ -74,13 +74,13 @@ class Tutores(db.Model):
 
 class Tutorias(db.Model):
     __tablename__ = 'tutorias'
-    id_tt = db.Column(db.Integer, primary_key=True)
+    id_tt = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
     tutorships_name = db.Column(db.String(120), unique=False, nullable=False)
     category = db.Column(db.String(120), unique=False, nullable=False)
     specialty = db.Column(db.String(120), unique=False, nullable=False)
     info_specifies = db.Column(db.String(300), unique=False, nullable=False)
     location = db.Column(db.String(300), unique=False, nullable=False)
-    info_detail = db.Column(db.String(300), unique=False, nullable=False)
+    info_detail = db.Column(db.String(9000), unique=False, nullable=False)
     imagen = db.Column(db.String(120), unique=False, nullable=False)
     rating = db.Column(db.Integer, unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
@@ -110,7 +110,7 @@ class Tutorias(db.Model):
 
 class Tutoria_Contratada(db.Model):
     __tablename__ = 'tutoria_contratada'
-    id_tc = db.Column(db.Integer, primary_key=True)
+    id_tc = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
     tutoria_id_fk = db.Column(db.Integer, db.ForeignKey('tutorias.id_tt'), nullable=False)
     tutoria_id = db.relationship('Tutorias')
     user_id_fk = db.Column(db.Integer, db.ForeignKey('user.id_u'), nullable=False)

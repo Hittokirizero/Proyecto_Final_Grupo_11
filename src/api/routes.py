@@ -23,7 +23,7 @@ def user_pva():
     elif request.method == 'POST':
         request_body = request.get_json()
         for i in request_body: 
-            insert_user = User(id_u=i["id_u"],
+            insert_user = User(
                            email=i["email"],
                            user_id=i["user_id"],
                            user_name=i["user_name"],
@@ -77,7 +77,7 @@ def tutores_pva():
     elif request.method == 'POST':
         request_body = request.get_json()
         for i in request_body: 
-            insert_tutores = Tutores(id_t=i["id_t"],
+            insert_tutores = Tutores(
                             email=i["email"],
                             tutor_id=i["tutor_id"],
                             tutor_name=i["tutor_name"],
@@ -112,7 +112,7 @@ def tutorias_pva():
     elif request.method == 'POST':
         request_body = request.get_json()
         for i in request_body: 
-            insert_tutorias = Tutorias(id_tt=i["id_tt"],
+            insert_tutorias = Tutorias(
                             tutorships_name=i["tutorships_name"],
                             category=i["category"],
                             specialty=i["specialty"],
@@ -154,7 +154,7 @@ def tutorias_contract(id_us):
             raise APIException('El usuario que buscas no existe', status_code=401)
         request_body = request.get_json()
         for i in request_body:
-            insert_contract = Tutoria_Contratada(id_tc=i["id_tc"],
+            insert_contract = Tutoria_Contratada(
                                     tutoria_id_fk=i["tutoria_id_fk"],
                                     user_id_fk=i["user_id_fk"],
                                     fecha_contrato=i["fecha_contrato"],
