@@ -12,10 +12,12 @@ export default function Paypal() {
 						intent: "CAPTURE",
 						purchase_units: [
 							{
-								description: "Curso",
+                                description: "Curso", 
+                                // tutorship name
 								amount: {
 									currency_code: "USD",
-									value: 100.0
+                                    value: 100.0
+                                    // valor
 								}
 							}
 						]
