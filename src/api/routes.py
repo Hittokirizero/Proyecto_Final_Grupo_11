@@ -1,13 +1,18 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+import os
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Tutores, Tutorias, Tutoria_Contratada
 from api.utils import generate_sitemap, APIException
-
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 
 api = Blueprint('api', __name__)
 
+
+# config for jwt
+#app.config["JWT_SECRET_KEY"] = "super-secret"
+#jwt = JWTManager(app)
 
 @api.route('/user', methods=['GET', 'POST'])
 def user_pva():
@@ -32,6 +37,28 @@ def user_pva():
             db.session.add(insert_user)
             db.session.commit()
         return jsonify({"Todo ok" : request_body }), 200
+
+@api.route('/login', methods=['POST'])
+def create_token():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    
+    if email is None:
+        return jsonify({"msg": "No email was provided"}), 400
+    if password is None:
+        return jsonify({"msg": "No password was provided"}), 400
+
+    user = User.query.filter_by(email=email, password=password).first()
+    if user is None:
+        # the user was not found on the database
+        return jsonify({"msg": "Invalid username or password"}), 401
+    else:
+        print(user)
+        # create a new token with the user id inside
+        access_token = create_access_token(identity=user.id_u)
+        return jsonify({ "token": access_token, "user_id": user.id_u }), 200
+
+
 
 @api.route('/user/<int:id_us>', methods=['GET'])
 def user_pva_ind(id_us):
@@ -89,6 +116,7 @@ def tutorias_pva():
                             tutorships_name=i["tutorships_name"],
                             category=i["category"],
                             specialty=i["specialty"],
+                            location=i["location"],
                             info_specifies=i["info_specifies"],
                             info_detail=i["info_detail"],
                             imagen=i["imagen"],
@@ -145,6 +173,19 @@ def tutorias_contract_del(id_c_tc):
     db.session.delete(gt_tutorias_contract_del)
     db.session.commit()
     return jsonify({"Fue eliminada la tutoria ID: ": id_c_tc}), 201
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 """----------------------"""
 @api.route('/update/<int:id_c_tc>', methods=['PUT'])
