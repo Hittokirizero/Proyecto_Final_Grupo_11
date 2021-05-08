@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 import ReactStars from "react-rating-stars-component";
 import Calendar from "../component/Calendar";
+import App from "/workspace/Proyecto_Final_Grupo_11/src/front/js/App.js";
 
 export const CourseDetails = props => {
 	const id = useParams();
@@ -61,6 +62,7 @@ export const CourseDetails = props => {
 					</CardBody>
 				</Card>
 			</CardGroup>
+			<App />
 			<h1 className="text-center">Schedule</h1>
 			<Calendar />
 		</div>
