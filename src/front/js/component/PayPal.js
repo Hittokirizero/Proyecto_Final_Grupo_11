@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 
 export default function Paypal() {
 	const paypal = useRef();
@@ -23,7 +24,6 @@ export default function Paypal() {
 				onApprove: async (data, actions) => {
 					const order = await actions.order.capture();
 					console.log(order);
-					// Aca va el API de contratacion y el popup
 				},
 
 				onError: err => {
