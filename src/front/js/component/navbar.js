@@ -9,6 +9,12 @@ export const Navbar = props => {
 
 	const toggle = () => setDropdownOpen(prevState => !prevState);
 
+	const token = sessionStorage.getItem("my_token");
+	const logout = e => {
+		sessionStorage.removeItem("my_token");
+		window.location.reload(false);
+	};
+
 	return (
 		<div
 			className="justify-content-between align-items-center border border-bottom text-light shadow-sm p-3 mb-5 bg-body rounded"
@@ -51,12 +57,20 @@ export const Navbar = props => {
 							</DropdownToggle>
 							<DropdownMenu>
 								<DropdownItem header>Actions</DropdownItem>
-								<Link to="/login">
-									<DropdownItem>Log in</DropdownItem>
-								</Link>
-								<Link to="/signup">
-									<DropdownItem>Sign up</DropdownItem>
-								</Link>
+								{token ? (
+									<Link to="/">
+										<DropdownItem onClick={logout}>Log out</DropdownItem>
+									</Link>
+								) : (
+									<div>
+										<Link to="/login">
+											<DropdownItem>Log in</DropdownItem>
+										</Link>
+										<Link to="/signup">
+											<DropdownItem>Sign up</DropdownItem>
+										</Link>
+									</div>
+								)}
 							</DropdownMenu>
 						</Dropdown>
 					</div>

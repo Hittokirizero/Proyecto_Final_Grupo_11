@@ -15,14 +15,21 @@ export const Login = () => {
 			password: password
 		};
 
-		fetch("https://3001-blush-partridge-hdw6t3wq.ws-us04.gitpod.io/api/login", {
+		fetch("https://3001-amber-planarian-e0hfeyk9.ws-us04.gitpod.io/api/login", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: {
 				"Content-Type": "application/json"
 			}
 		})
-			.then(res => res.json())
+			.then(res => {
+				res.status === 200
+					? setTimeout(() => {
+							setAuth(true);
+					  }, 2000)
+					: null;
+				return res.json();
+			})
 			.then(data => {
 				console.log(data);
 				sessionStorage.setItem("my_token", data.token);

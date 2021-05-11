@@ -34,7 +34,7 @@ export const Signup = () => {
 			}
 		];
 
-		fetch("https://3001-blush-partridge-hdw6t3wq.ws-us04.gitpod.io/api/user", {
+		fetch("https://3001-amber-planarian-e0hfeyk9.ws-us04.gitpod.io/api/user", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: {
