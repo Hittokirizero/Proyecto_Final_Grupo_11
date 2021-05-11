@@ -57,8 +57,6 @@ export const Navbar = props => {
 								<Link to="/signup">
 									<DropdownItem>Sign up</DropdownItem>
 								</Link>
-								<DropdownItem divider />
-								<DropdownItem disabled>Log Out</DropdownItem>
 							</DropdownMenu>
 						</Dropdown>
 					</div>

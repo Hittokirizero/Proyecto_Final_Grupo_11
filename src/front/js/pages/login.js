@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../../styles/register.scss";
+import { Redirect, Link } from "react-router-dom";
 
 export const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [auth, setAuth] = useState(false);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -14,22 +15,19 @@ export const Login = () => {
 			password: password
 		};
 
-		fetch(
-			("https://3001-green-turtle-maithtsj.ws-us03.gitpod.io/api/user",
-			{
-				method: "POST",
-				body: JSON.stringify(body),
-				headers: {
-					"Content-Type": "application/json"
-				}
+		fetch("https://3001-blush-partridge-hdw6t3wq.ws-us04.gitpod.io/api/login", {
+			method: "POST",
+			body: JSON.stringify(body),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
+			.then(res => res.json())
+			.then(data => {
+				console.log(data);
+				sessionStorage.setItem("my_token", data.token);
 			})
-				.then(res => res.json())
-				.then(data => {
-					console.log(data);
-					sessionStorage.setItem("my_token", data.token);
-				})
-				.catch(err => console.log(err))
-		);
+			.catch(err => console.log(err));
 	};
 
 	return (
@@ -84,6 +82,7 @@ export const Login = () => {
 							</p>
 						</div>
 					</form>
+					{auth ? <Redirect to="/" /> : null}
 				</div>
 			</div>
 		</div>
