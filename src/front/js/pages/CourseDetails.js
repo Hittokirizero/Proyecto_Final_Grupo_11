@@ -68,29 +68,3 @@ export const CourseDetails = props => {
 		</div>
 	);
 };
-
-{
-	/* {store.courses.map((courseDet, i) => {
-				if (i == id) { */
-}
-{
-	/* return ( */
-}
-
-{
-	/* );
-				}
-            })} */
-}
-
-// <div className="card">
-// 	<div className="card-body">
-// 		<h5 className="card-title"> {store.courses[id.id].tutorships_name}</h5>
-// 		<p className="card-text">
-// 			<ul>
-
-// 			</ul>
-// 		</p>
-// 		<Link to="/courses">Volver</Link>
-// 	</div>
-// </div>

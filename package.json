@@ -77,9 +77,10 @@
 	},
 	"dependencies": {
 		"@remotelock/react-week-scheduler": "^3.5.8",
-		"bootstrap": "^4.3.1",
+		"bootstrap": "^4.6.0",
 		"prop-types": "^15.6.1",
 		"react": "^16.14.0",
+		"react-bootstrap": "^1.6.0",
 		"react-dom": "^16.14.0",
 		"react-paypal-button-v2": "^2.6.3",
 		"react-polyfills": "0.0.1",

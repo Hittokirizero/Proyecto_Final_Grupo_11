@@ -15,7 +15,7 @@ export const Login = () => {
 			password: password
 		};
 
-		fetch("https://3001-amber-planarian-e0hfeyk9.ws-us04.gitpod.io/api/login", {
+		fetch("https://3001-bronze-dog-jpxmztud.ws-us04.gitpod.io/api/login", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: {
@@ -26,7 +26,7 @@ export const Login = () => {
 				res.status === 200
 					? setTimeout(() => {
 							setAuth(true);
-					  }, 2000)
+					  }, 1000)
 					: null;
 				return res.json();
 			})

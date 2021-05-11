@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AlertExample from "../component/Alert";
 
 export const Information = () => {
+	// const message = () => {
+	// 	return <AlertExample />;
+	// };
+
 	return (
 		<div className="mb-4">
 			{/* <!--Section heading--> */}
@@ -69,7 +74,7 @@ export const Information = () => {
 					</form>
 
 					<div className="text-center text-md-middle">
-						<a className="btn btn-primary text-light text-center">Send</a>
+						<AlertExample />
 					</div>
 					<div className="status" />
 				</div>
