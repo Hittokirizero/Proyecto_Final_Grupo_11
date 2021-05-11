@@ -55,7 +55,7 @@ export const Navbar = props => {
 									<DropdownItem>Log in</DropdownItem>
 								</Link>
 								<Link to="/signup">
-									<DropdownItem>Sign Up</DropdownItem>
+									<DropdownItem>Sign up</DropdownItem>
 								</Link>
 								<DropdownItem divider />
 								<DropdownItem disabled>Log Out</DropdownItem>

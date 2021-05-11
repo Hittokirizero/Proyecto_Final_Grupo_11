@@ -34,9 +34,11 @@ def user_pva():
                            is_active=i["is_active"],
                            direction=i["direction"],
                            gender=i["gender"])
-            db.session.add(insert_user)
-            db.session.commit()
-        return jsonify({"Todo ok" : request_body }), 200
+        print(insert_user)
+        db.session.add(insert_user)
+        db.session.commit()
+        # return jsonify({"Todo ok" : request_body }), 200
+        return jsonify({"msg": "hello"}), 200
 
 @api.route('/login', methods=['POST'])
 def create_token():
