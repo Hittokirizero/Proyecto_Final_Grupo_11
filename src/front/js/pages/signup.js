@@ -34,7 +34,7 @@ export const Signup = () => {
 			}
 		];
 
-		fetch("https://3001-bronze-dog-jpxmztud.ws-us04.gitpod.io/api/user", {
+		fetch("https://3001-lime-gazelle-mr2waror.ws-us04.gitpod.io/api/user", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: {
@@ -170,7 +170,7 @@ export const Signup = () => {
 							</div>
 						</div>
 					</form>
-					{auth ? <Redirect to="/" /> : null}
+					{auth ? <Redirect to="/login" /> : null}
 				</div>
 			</div>
 		</div>

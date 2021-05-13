@@ -15,7 +15,7 @@ export const Login = () => {
 			password: password
 		};
 
-		fetch("https://3001-bronze-dog-jpxmztud.ws-us04.gitpod.io/api/login", {
+		fetch("https://3001-lime-gazelle-mr2waror.ws-us04.gitpod.io/api/login", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: {

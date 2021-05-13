@@ -49,7 +49,7 @@ export const CourseDetails = props => {
 						</CardSubtitle>
 						<CardText>
 							<h4>Specific Information:</h4>
-							<p>{store.courses[id.id].info_specifies}</p>
+							<p>{store.courses[id.id].info_detail}</p>
 
 							<h4>Specialty:</h4>
 							<p>{store.courses[id.id].specialty}</p>

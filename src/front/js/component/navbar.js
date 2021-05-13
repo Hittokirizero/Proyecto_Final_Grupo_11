@@ -58,9 +58,14 @@ export const Navbar = props => {
 							<DropdownMenu>
 								<DropdownItem header>Actions</DropdownItem>
 								{token ? (
-									<Link to="/">
-										<DropdownItem onClick={logout}>Log out</DropdownItem>
-									</Link>
+									<div>
+										<Link to="/resetpassword">
+											<DropdownItem>Change Password</DropdownItem>
+										</Link>
+										<Link to="/">
+											<DropdownItem onClick={logout}>Log out</DropdownItem>
+										</Link>
+									</div>
 								) : (
 									<div>
 										<Link to="/login">

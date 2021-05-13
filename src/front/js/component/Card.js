@@ -46,9 +46,9 @@ const Example = props => {
 							</CardSubtitle>
 							<CardText>
 								<h4>General Information:</h4>
-								<p>{item.location}</p>
+								<p>{item.info_specifies}</p>
 								<h4>Location:</h4>
-								<i className="fas fa-map-marker-alt fa-lg"> {item.info_detail}</i>
+								<i className="fas fa-map-marker-alt fa-lg"> {item.location}</i>
 
 								<div className="container ">
 									<div className="row ">

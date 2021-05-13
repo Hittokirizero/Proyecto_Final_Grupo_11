@@ -13,7 +13,7 @@ export const Resetpassword = () => {
 						<div className="form-group">
 							<label htmlFor="exampleInputPassword1">New Password</label>
 							<input
-								onChange={e => setPassword(e.target.value)}
+								// onChange={e => setPassword(e.target.value)}
 								type="password"
 								className="form-control"
 								id="exampleInputPassword1"
@@ -24,7 +24,7 @@ export const Resetpassword = () => {
 						<div className="form-group">
 							<label htmlFor="exampleInputPassword2">Confirm Password</label>
 							<input
-								onChange={e => setPassword(e.target.value)}
+								// onChange={e => setPassword(e.target.value)}
 								type="password"
 								className="form-control"
 								id="exampleInputPassword1"
